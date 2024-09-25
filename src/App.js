@@ -31,13 +31,15 @@ function App() {
       const res=await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${title}&page=${queryPageIndex}`);
       const resData=await res.json();
       if(!res.ok){
-        console.error(res.status);
+        console.error(`Error status: ${res.status}`);
       }
-      setSearchResultsNumber(resData.totalResults);
-      const movies=resData.Search.map(movie=>
-        <Movie img={movie.Poster} key={movie.imdbID} title={movie.Title} year={movie.Year} type={movie.Type}></Movie>
-      );
-      setMovieElements(movies);
+      else{
+        setSearchResultsNumber(resData.totalResults);
+        const movies=resData.Search.map(movie=>
+          <Movie img={movie.Poster} key={movie.imdbID} title={movie.Title} year={movie.Year} type={movie.Type}></Movie>
+        );
+        setMovieElements(movies);
+      }
     }
     catch(error)
     {
