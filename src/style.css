@@ -7,15 +7,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.App-header {
+.app-header {
   background-color: #282c34;
-  min-height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.app-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30px;
+}
+
+.app {
+  text-align: center;
+}
+
+.app-link {
+  color: #61dafb;
+}
+
+.app-title{
+  margin: 0px;
 }
 
 code {
@@ -34,25 +52,32 @@ code {
   padding-left: 0px;
 }
 
+.paginations-div-class{
+  display: inline-flex;
+}
 .pagination-div-class{
   float:left;
-}
-
-.App-content{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 30px;
 }
 
 .poster-image{
   max-width: 300px;
 }
 
-.App {
-  text-align: center;
-}
+.menu{
+list-style-type: none;
+margin:0px;
+padding:0px;
 
-.App-link {
-  color: #61dafb;
+& li{
+  display: block;
+  float: left;
+  padding: 16px;
+}
+& a{
+  display: block;
+    float: left;
+    text-decoration: none;
+    padding: 16px;
+    color: white;
+  }
 }

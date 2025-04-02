@@ -1,4 +1,4 @@
-export default function Movie(props) {
+export default function MovieCard(props) {
     const imageText = props.title + " image text";
     return (
         <div>
