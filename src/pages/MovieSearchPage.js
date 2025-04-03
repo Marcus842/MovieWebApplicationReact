@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import MovieCard from '../components/MovieCard';
+import { SearchForMovies } from '../services/OmdApiService';
+
 
 
 export default function MovieSearchPage() {
@@ -9,7 +10,11 @@ export default function MovieSearchPage() {
     const [searchResultsNumber, setSearchResultsNumber] = useState(null);
     const [displayPrevButton, SetDisplayPrevButton] = useState(false);
     const [displayNextButton, SetDisplayNextButton] = useState(false);
-    const apiKey = process.env.REACT_APP_API_KEY;
+
+    function handleChange(e) {
+        const val = e.target.value;
+        setTitle(val);
+    }
 
     async function handleClick(event) {
         event.preventDefault();
@@ -27,27 +32,12 @@ export default function MovieSearchPage() {
             queryPageIndex = pageIndex;
         }
 
-        let totalResults;
-        try {
-            const res = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${title}&page=${queryPageIndex}`);
-            const resData = await res.json();
-            if (!res.ok) {
-                console.error(`Error status: ${res.status}`);
-            }
-            else if (resData.Response === "False") {
-                console.error(`Error message: ${resData.Error}`);
-            }
-            else {
-                totalResults = resData.totalResults;
-                setSearchResultsNumber(totalResults);
-                const movies = resData.Search.map(movie => <MovieCard img={movie.Poster} key={movie.imdbID} title={movie.Title} year={movie.Year} type={movie.Type}></MovieCard>
-                );
-                setMovieElements(movies);
-            }
-        }
-        catch (error) {
-            console.error(error);
-        }
+        let totalResults = await SearchForMovies(title, queryPageIndex, setSearchResultsNumber, setMovieElements);
+
+        LogicForDisplayingPaginationButtons(queryPageIndex, totalResults);
+    }
+
+    function LogicForDisplayingPaginationButtons(queryPageIndex, totalResults) {
         if (queryPageIndex > 1) {
             SetDisplayPrevButton(true);
         }
@@ -68,11 +58,6 @@ export default function MovieSearchPage() {
         else {
             SetDisplayNextButton(false);
         }
-    }
-
-    function handleChange(e) {
-        const val = e.target.value;
-        setTitle(val);
     }
 
     return (
@@ -103,3 +88,5 @@ export default function MovieSearchPage() {
             </div>
         </div>);
 }
+
+

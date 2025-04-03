@@ -8,13 +8,13 @@ import MovieSearchPage from './pages/MovieSearchPage';
 function App() {
   return (
     <Router>
-      <Header/>
+      <Header />
       <main className="container">
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/moviesearch" element={<MovieSearchPage />} />
-                    </Routes>
-            </main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/moviesearch" element={<MovieSearchPage />} />
+        </Routes>
+      </main>
     </Router>
   );
 }
