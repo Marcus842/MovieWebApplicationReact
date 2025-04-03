@@ -2,9 +2,19 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Environment variable
+
+Before you run the project for the first time you need to create a `.env` in the root folder `MOVIEWEBAPPLICATIONREACT` with the following property
+`REACT_APP_API_KEY = '[YourKey]'` the key can be obrained from https://www.omdbapi.com/apikey.aspx
+You might have to run `npm start` again for the script to implement the environment variable.
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+First time you download the project you might have to run npm istall to install all packages before you car run any npm commands
 
 ### `npm start`
 
