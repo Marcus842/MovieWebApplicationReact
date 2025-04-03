@@ -8,7 +8,6 @@ import MovieSearchPage from './pages/MovieSearchPage';
 function App() {
   return (
     <Router>
-    <div className="app">
       <Header/>
       <main className="container">
                     <Routes>
@@ -16,7 +15,6 @@ function App() {
                         <Route path="/moviesearch" element={<MovieSearchPage />} />
                     </Routes>
             </main>
-    </div>
     </Router>
   );
 }
