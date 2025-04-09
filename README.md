@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Environment variable
 
 Before you run the project for the first time you need to create a file named `.env` in the root folder `MOVIEWEBAPPLICATIONREACT` with the following property
-`REACT_APP_API_KEY = '[YourKey]'` the key can be obrained from https://www.omdbapi.com/apikey.aspx
+`REACT_APP_API_KEY = '[YourKey]'` the key can be obtained from https://www.omdbapi.com/apikey.aspx
 You might have to run `npm start` again for the script to implement the environment variable.
 
 ## Available Scripts
