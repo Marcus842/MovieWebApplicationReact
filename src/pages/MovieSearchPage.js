@@ -62,27 +62,29 @@ export default function MovieSearchPage() {
 
     return (
         <div>
-            <form onSubmit={handleClick}>
-                <input type='text' placeholder='Movie title' name="title" value={title} onChange={handleChange}></input>
-                <input type='submit' placeholder='Submit' value='Submit'></input>
-            </form>
-            <div className='paginations-div-class'>
-                {displayPrevButton ?
-                    (<div className='pagination-div-class'>
-                        <form onSubmit={handleClick} id="previous" name='previous'>
-                            <input type='submit' placeholder='Previous' value='Previous'></input>
-                        </form>
-                    </div>) :
-                    null}
-                {displayNextButton ?
-                    (<div className='pagination-div-class'>
-                        <form onSubmit={handleClick} id="next" name='next'>
-                            <input type='submit' placeholder='Next' value='Next'></input>
-                        </form>
-                    </div>) :
-                    null}
+            <div className='search-box'>
+                <form onSubmit={handleClick}>
+                    <p><input type='text' placeholder='Movie title' name="title" value={title} onChange={handleChange}></input></p>
+                    <input type='submit' placeholder='Submit' value='Search'></input>
+                </form>
+                <div className='paginations-div-class'>
+                    {displayPrevButton ?
+                        (<div className='pagination-div-class'>
+                            <form onSubmit={handleClick} id="previous" name='previous'>
+                                <input type='submit' placeholder='Previous' value='Previous'></input>
+                            </form>
+                        </div>) :
+                        null}
+                    {displayNextButton ?
+                        (<div className='pagination-div-class'>
+                            <form onSubmit={handleClick} id="next" name='next'>
+                                <input type='submit' placeholder='Next' value='Next'></input>
+                            </form>
+                        </div>) :
+                        null}
+                </div>
+                {searchResultsNumber ? (<p><b>Number of search results: </b>{searchResultsNumber}</p>) : null}
             </div>
-            {searchResultsNumber ? (<p><b>Number of search results: </b>{searchResultsNumber}</p>) : null}
             <div className='app-content'>
                 {movieElements}
             </div>

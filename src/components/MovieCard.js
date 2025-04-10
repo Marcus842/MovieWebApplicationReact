@@ -1,7 +1,7 @@
 export default function MovieCard(props) {
     const imageText = props.title + " image text";
     return (
-        <div>
+        <div className="movie-card">
             {props.img && props.img !== "N/A" ? (<img className="poster-image" src={props.img} alt={imageText} />) : null}
             <ul className="image-spec-ul">
                 <li><b>Title: </b>{props.title}</li>
