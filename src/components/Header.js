@@ -19,7 +19,7 @@ export default function Header() {
             <div className={showMobileMenu ? 'menu responsive' : 'menu'}>
                 <NavLink to='/'>Home</NavLink>
                 <NavLink to='/moviesearch'>Search movies</NavLink>
-                <a href="void(0);" onClick={toggleClass} className="icon">
+                <a href="void(0);" onClick={toggleClass} className="icon icon-padding-bottom">
                     <div className="hamburger-menu">
                         <div className="hamburger-bar"></div>
                         <div className="hamburger-bar"></div>

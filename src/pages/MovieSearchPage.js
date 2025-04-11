@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SearchForMovies } from '../services/OmdApiService';
-
+import Header from '../components/Header'
 
 
 export default function MovieSearchPage() {
@@ -62,6 +62,8 @@ export default function MovieSearchPage() {
 
     return (
         <div>
+            <div className="div-header">
+                <Header />
             <div className='search-box'>
                 <form onSubmit={handleClick}>
                     <p><input type='text' placeholder='Movie title' name="title" value={title} onChange={handleChange}></input></p>
@@ -84,6 +86,7 @@ export default function MovieSearchPage() {
                         null}
                 </div>
                 {searchResultsNumber ? (<p><b>Number of search results: </b>{searchResultsNumber}</p>) : null}
+            </div>
             </div>
             <div className='app-content'>
                 {movieElements}

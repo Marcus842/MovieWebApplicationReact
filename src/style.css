@@ -7,6 +7,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.div-header
+{
+  position: fixed;
+  top:0;
+  width:100%;
+  background-color:white;
+}
 .app-header {
   background-color: #282c34;
   display: flex;
@@ -15,7 +22,6 @@ body {
   justify-content: center;
   font-size: 30px;
   color: white;
-  position: fixed;
   width: 100%;
   top: 0;
   overflow: hidden;
@@ -28,7 +34,7 @@ body {
   max-width: 1050px;
   align-items: center;
   font-size: 30px;
-  margin-top: 380px;
+  margin-top: 390px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -51,10 +57,7 @@ code {
 }
 
 .search-box {
-  position: fixed;
-  background-color: white;
   width: 100%;
-  top: 155px;
 }
 
 .movie--prop {
@@ -116,6 +119,10 @@ code {
 .menu .icon {
   display: none;
   background-color: #f2f2f2;
+}
+
+.icon-padding-bottom{
+  padding-bottom: 7px !important;
 }
 
 @media screen and (max-width: 600px) {
