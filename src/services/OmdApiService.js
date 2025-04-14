@@ -1,14 +1,13 @@
-import { useParams } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 
 export async function SearchForMovies(title, queryPageIndex, setSearchResultsNumber, setMovieElements) {
     const apiKey = process.env.REACT_APP_API_KEY;
     let totalResults;
     try {
-        const params=new URLSearchParams();
-        params.append("apikey",apiKey);
-        params.append("s",title);
-        params.append("page",queryPageIndex);
+        const params = new URLSearchParams();
+        params.append("apikey", apiKey);
+        params.append("s", title);
+        params.append("page", queryPageIndex);
 
         const res = await fetch(`https://www.omdbapi.com/?${params}`);
         const resData = await res.json();

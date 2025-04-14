@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { SearchForMovies } from '../services/OmdApiService';
-import Header from '../components/Header'
 
-
-export default function MovieSearchPage() {
-    const [movieElements, setMovieElements] = useState(null);
+export default function SearchBox({ setMovieElements }) {
     const [title, setTitle] = useState("");
     const [pageIndex, setPageIndex] = useState(1);
     const [searchResultsNumber, setSearchResultsNumber] = useState(null);
@@ -59,39 +56,28 @@ export default function MovieSearchPage() {
             SetDisplayNextButton(false);
         }
     }
-
     return (
-        <div>
-            <div className="div-header">
-                <Header />
-            <div className='search-box'>
-                <form onSubmit={handleClick}>
-                    <p><input type='text' placeholder='Movie title' name="title" value={title} onChange={handleChange}></input></p>
-                    <input type='submit' placeholder='Submit' value='Search'></input>
-                </form>
-                <div className='paginations-div-class'>
-                    {displayPrevButton ?
-                        (<div className='pagination-div-class'>
-                            <form onSubmit={handleClick} id="previous" name='previous'>
-                                <input type='submit' placeholder='Previous' value='Previous'></input>
-                            </form>
-                        </div>) :
-                        null}
-                    {displayNextButton ?
-                        (<div className='pagination-div-class'>
-                            <form onSubmit={handleClick} id="next" name='next'>
-                                <input type='submit' placeholder='Next' value='Next'></input>
-                            </form>
-                        </div>) :
-                        null}
-                </div>
-                {searchResultsNumber ? (<p><b>Number of search results: </b>{searchResultsNumber}</p>) : null}
+        <div className='search-box'>
+            <form onSubmit={handleClick}>
+                <p className='paragraph-search-input'><input type='text' placeholder='Movie title' name="title" value={title} onChange={handleChange}></input></p>
+                <input type='submit' placeholder='Submit' value='Search'></input>
+            </form>
+            <div className='paginations-div-class'>
+                {displayPrevButton ?
+                    (<div className='pagination-div-class'>
+                        <form onSubmit={handleClick} id="previous" name='previous'>
+                            <input type='submit' placeholder='Previous' value='Previous'></input>
+                        </form>
+                    </div>) :
+                    null}
+                {displayNextButton ?
+                    (<div className='pagination-div-class'>
+                        <form onSubmit={handleClick} id="next" name='next'>
+                            <input type='submit' placeholder='Next' value='Next'></input>
+                        </form>
+                    </div>) :
+                    null}
             </div>
-            </div>
-            <div className='app-content'>
-                {movieElements}
-            </div>
+            {searchResultsNumber ? (<p><b>Number of search results: </b>{searchResultsNumber}</p>) : null}
         </div>);
 }
-
-

@@ -7,14 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.div-header
-{
-  position: fixed;
-  top:0;
-  width:100%;
-  background-color:white;
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1em;
+  }
 }
+
 .app-header {
+  position: fixed;
   background-color: #282c34;
   display: flex;
   flex-direction: column;
@@ -39,12 +39,15 @@ body {
   margin-right: auto;
 }
 
-.app {
-  text-align: center;
+@media screen and (max-width: 600px) {
+  .app-content {
+    font-size: 1em;
+    margin-top: 230px;
+  }
 }
 
-.app-link {
-  color: #61dafb;
+.app {
+  text-align: center;
 }
 
 .app-title {
@@ -58,10 +61,17 @@ code {
 
 .search-box {
   width: 100%;
+  text-align: center;
 }
 
-.movie--prop {
-  float: left;
+@media screen and (max-width: 600px) {
+  .search-box {
+    font-size: 0.5em;
+  }
+}
+
+.paragraph-search-input {
+  margin: 0;
 }
 
 .image-spec-ul {
@@ -97,6 +107,12 @@ code {
   width: 100%;
 }
 
+@media screen and (max-width: 600px) {
+  .menu {
+    font-size: 0.5em;
+  }
+}
+
 .menu a {
   float: left;
   display: block;
@@ -121,8 +137,8 @@ code {
   background-color: #f2f2f2;
 }
 
-.icon-padding-bottom{
-  padding-bottom: 7px !important;
+.icon-padding-bottom {
+  padding: 2px 9px 3px 9px !important;
 }
 
 @media screen and (max-width: 600px) {
@@ -138,6 +154,7 @@ code {
 @media screen and (max-width: 600px) {
   .menu.responsive {
     position: relative;
+    font-size: 0.5em;
   }
   .menu.responsive .icon {
     position: absolute;

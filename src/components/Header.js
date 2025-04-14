@@ -1,8 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { useLocation, NavLink } from "react-router-dom";
 import React, { useState } from 'react';
+import SearchBox from './SearchBox';
 
-export default function Header() {
+export default function Header({ setMovieElements }) {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
+    const location = useLocation();
 
     function toggleClass(e) {
         e.preventDefault();
@@ -27,5 +29,8 @@ export default function Header() {
                     </div>
                 </a>
             </div>
+            {'/moviesearch' === location.pathname ? (
+                <SearchBox setMovieElements={setMovieElements} />
+            ) : null}
         </header>);
 }
