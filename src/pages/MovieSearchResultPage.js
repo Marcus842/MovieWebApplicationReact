@@ -4,7 +4,7 @@ export default function MovieSearchResultPage({ movieElements }) {
 
     return (
         <>{movieElements ? (<div>
-            <div className='app-content'>
+            <div className='moviesearchresultpage-content '>
                 {movieElements}
             </div>
         </div>) : null}
