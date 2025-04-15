@@ -22,10 +22,10 @@ export default function Header({ setMovieElements }) {
                 <NavLink to='/'>Home</NavLink>
                 <NavLink to='/moviesearch'>Search movies</NavLink>
                 <a href="void(0);" onClick={toggleClass} className="icon icon-padding-bottom">
-                    <div className="hamburger-menu">
-                        <div className="hamburger-bar"></div>
-                        <div className="hamburger-bar"></div>
-                        <div className="hamburger-bar"></div>
+                    <div className={showMobileMenu ? 'hamburger-bars-container change' : 'hamburger-bars-container'}>
+                        <div className="bar1"></div>
+                        <div className="bar2"></div>
+                        <div className="bar3"></div>
                     </div>
                 </a>
             </div>
